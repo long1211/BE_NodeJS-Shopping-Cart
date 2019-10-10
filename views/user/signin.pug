@@ -1,0 +1,28 @@
+extends ../layouts/layout.pug
+
+block content
+    .container
+       .col-md-4.col-sm-4   
+       .col-xs-12.col-md-4.col-md-4
+          h2.title.text-center Sign In
+          if hasErrors
+            each mess in messages
+              .alert.alert-danger= mess
+        
+          form(action="/signin", method="POST")
+            
+            .form-group
+                label(for='email') Email 
+                input#email.form-control(type='text', name='email', placeholder='Email', value=dataForm ? dataForm.email : "")
+               
+            .form-group
+                label(for='pass') Password
+                input#pass.form-control(type='password', name='password', placeholder='Password', value=dataForm ? dataForm.password : "")
+               
+            button.btn.btn-primary.text-center(type='submit',style='display: block;margin: 2px auto 20px;width: 110px;') Sign In
+            input(type='hidden', name='_csrf', value=csrfToken) 
+          .col-md-12.col-sm-12.col-lg-12.col-xs-12.form-item(style='text-align:center;')
+             | Don&apos;t Have an Account?
+             a(href='/signup')  Register an account 
+          
+       .col-md-4.col-sm-4              

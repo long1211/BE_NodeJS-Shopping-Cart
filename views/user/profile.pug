@@ -1,0 +1,25 @@
+extends ../layouts/layout.pug
+
+block content
+    .container
+          .row
+            .col-md-8.col-md-offset-2
+                h1(style='font-family: cursive;') User Profile
+                hr
+                h2(style='font-family: cursive;') My Orders
+                each ord in orders
+                 .panel.panel-default
+                 .panel-body
+                    ul.list-group
+                      each ite in item 
+                        li.list-group-item
+                          span.badge
+                            =ite.price
+                          =ite.item.title
+                          span &nbsp | &nbsp
+                          =ite.qty 
+                          span &nbsp
+                          |Units
+                 .panel-footer
+                    strong Total Price: $
+                      =ord.cart.totalPrice 

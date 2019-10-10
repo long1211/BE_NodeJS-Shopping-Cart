@@ -1,0 +1,41 @@
+nav.navbar.navbar-default
+  .container-fluid
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') 
+        img(src='https://fbcd.co/images/products/71eafb89f9677571fbc1925647d89fe5_resize.jpg' width=100)
+    // Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+     
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href='/shopping-cart')
+            i.fa.fa-shopping-cart(aria-hidden='true') 
+            | Shopping Cart
+            if session.cart
+              span.badge(style='margin: 0 5px;')= session.cart.totalQty
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+            i.fa.fa-user(aria-hidden='true') 
+            | User Management
+            span.caret
+          ul.dropdown-menu
+            if login
+              li
+                a(href='/profile') User Account
+              li.divider(role='separator')
+              li
+                a(href='/logout') Logout
+            else    
+              li
+                a(href='/signup') Sign Up
+              li.divider(role='separator')
+              li
+                a(href='/signin') Sign In
+    // /.navbar-collapse
+  // /.container-fluid

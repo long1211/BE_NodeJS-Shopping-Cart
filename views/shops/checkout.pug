@@ -1,0 +1,50 @@
+extends ../layouts/layout.pug
+
+block content
+   .container
+        .row
+                .col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+                    h1.text-center(style='text-transform:uppercase; font-weight:bold; font-family: cursive;') Checkout
+                    h4 Your Total: $
+                      =total
+                    #charge-error.alert.alert-danger(class='if noError hidden ')
+                         = errMsg  
+                    form#checkout-form(action='/checkout', method="POST")
+                     
+                     .row  
+                        .col-xs-12
+                          .form-group
+                            label(for='name') Name
+                            input#name.form-control(type='text', required='', name='name')
+                        .col-xs-12
+                          .form-group
+                            label(for='address') Address
+                            input#address.form-control(type='text', required='', name='address')
+                        hr
+                        .col-xs-12
+                          .form-group
+                             label(for='card-name') Card Holder Name
+                             input#card-name.form-control(type='text', required='')
+                        .col-xs-12
+                          .form-group
+                            label(for='card-number') Credit Card Number
+                            input#card-number.form-control(type='text', required='')
+                        .col-xs-12
+                          .row
+                            .col-xs-6
+                             .form-group
+                                label(for='card-expiry-month') Expiration Month
+                                input#card-expiry-month.form-control(type='text', required='')
+                            .col-xs-6
+                             .form-group
+                                label(for='card-expiry-year') Expiration Year
+                                input#card-expiry-year.form-control(type='text', required='')
+                        .col-xs-12
+                          .form-group
+                            label(for='card-cvc') CVC
+                            input#card-cvc.form-control(type='text', required='')
+                        .col-xs-12
+                          button.btn.btn-success(type='submit') Buy now
+        script(src='https://js.stripe.com/v2/')
+        script(src='/javascripts/checkout.js')
+    

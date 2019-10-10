@@ -1,0 +1,23 @@
+extends ../layouts/layout.pug
+
+block content
+   .container
+     .row 
+        .col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3 
+            #success.alert.alert-success.text-center
+               | Hello!! Welcome to Store Shopping
+               br 
+               br
+               =successMsg  
+                     
+     each product in products
+        .col-sm-6.col-md-4.col-lg-3.box-products
+          .card.mb-3
+             img.card-img-top(src=product.imagePath width='100%' height='332px')
+             .card-body
+               h5.card-title= product.title
+               p.card-text= product.description
+             .clearfix 
+               p.price.pull-left(style='font-weight:bold')='$'+ product.price 
+        
+               a.btn.btn-success.pull-right(href='/add-to-cart/' + product.id, role='button') Add to Cart

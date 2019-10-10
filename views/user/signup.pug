@@ -1,0 +1,24 @@
+extends ../layouts/layout.pug
+
+block content
+    .container
+       .col-md-4.col-sm-4   
+       .col-xs-12.col-md-3.col-md-3
+          h2.title.text-center Sign Up
+          if hasErrors
+            each mess in messages
+              .alert.alert-danger= mess
+        
+          form(action="/signup", method="POST")
+            
+            .form-group
+                label(for='email') Email 
+                input#email.form-control(type='text', name='email', placeholder='Email', value=dataForm ? dataForm.email : "")
+               
+            .form-group
+                label(for='pass') Password
+                input#pass.form-control(type='password', name='password', placeholder='Password', value=dataForm ? dataForm.password : "")
+               
+            button.btn.btn-primary(type='submit') Sign Up
+            input(type='hidden', name='_csrf', value=csrfToken) 
+       .col-md-4.col-sm-4              

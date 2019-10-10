@@ -1,0 +1,52 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+/** welcome header **/
+.fa-shopping-cart, .fa-user{
+  margin-right: 5px;
+  
+}
+.navbar-brand{
+  padding: 0;
+}
+a {
+  color: #00B7FF;
+}
+.card-body .card-text{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+ overflow: hidden;
+}
+.box-products{
+  padding-top: 15px;
+}
+.title{
+  font-weight:bold;
+  text-transform: uppercase;
+  color: green;
+}
+/** The End header **/
+
+td, th {
+ 
+  text-align: left;
+  padding: 8px;
+  vertical-align: inherit;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+   vertical-align: inherit; 
+   border: 1px solid #ddd;
+}
+.table>tbody>tr>td{
+  border:none;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}

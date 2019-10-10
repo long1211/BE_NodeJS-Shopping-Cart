@@ -1,0 +1,44 @@
+extends ../layouts/layout.pug
+
+block content
+   .container
+        if products 
+            .row        
+                 table.table(style='width: 60%;')
+                      tr
+                         
+                          th Title
+                          th(style="width: 10%;") Quantity
+                          th Price
+                          th Action
+                      each product in products
+                        tr(style='position:relative')
+                          
+                          
+                          td(style='font-weight: bold; ')=  product.item.title
+                          td.badge(style='position: absolute;left: 39%;')= product.qty
+                          td.label.label-success(style='position: absolute;left: 45%;')= product.item.price
+                          td.btn-group(style='position: absolute;left: 52%;')
+                            button.btn.btn-primary.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                              | Action 
+                              span.caret
+                            ul.dropdown-menu
+                              li
+                                a(href='/reduce/'+ product.item._id) Reduce by 1
+                              li
+                                a(href='/remove/'+ product.item._id) Remove All
+
+                            
+            .row
+              .col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+                span(style='font-weight:bold') Total:&nbsp $  
+                    strong=totalPrice
+                hr
+            .row
+                .col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+                  a.btn.btn-success(href='/checkout', type='button') Checkout
+        else
+                .row
+                  .col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+                     h2 No Items in Cart yet!
+
