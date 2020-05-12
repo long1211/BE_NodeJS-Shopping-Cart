@@ -172,14 +172,14 @@ failureFlash: true
 module.exports = router;
 //Bắt buộc đăng nhập
 // Nếu đã đăng nhập thì ko cần login nx
-// Nếu chưa thì phải đăng nhập ms vào đc 
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()){
     return next();
   }
     res.redirect('/');
 }
-// Đã Login thì ko cho login nx
+// Chưa login thì yêu cầu login
 function notLoggedIn(req, res, next) {
   if (!req.isAuthenticated()){
     return next();
